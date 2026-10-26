@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+
+        <h2>количество дел на сегодня : {{ count }}</h2>
+
+        <form action="/add_item" method="post">
+            <h3>Добавить новое дело</h3>
+            <input type="text" name="item" placeholder="Что надо сделать..">
+            <button type="submit">Добавить</button>
+        </form>
+
+        <form action="/search" method="post">
+            <h3>Поиск дел</h3>
+            <input type="text" name="search_item" placeholder="Что будем искать">
+            <button type="submit">Найти</button>
+        </form>
+
+        <ul class="list">
+            {% for i in todo_list %}
+                {% if not i["status"] %}
+                    <li class="item">
+                        <span class="item-text">{{ i["text"] }}</span>
+                        <a class="item-link" href="/del/{{ i['id'] }}">Удалить</a>
+                        <a class="item-link" href="/change_status/{{ i['id'] }}">Выполнить</a>
+                    </li>
+                {% else %}
+                    <li class="item done">
+                        <span class="item-text">{{ i["text"] }}</span>
+                        <a class="item-link" href="/del/{{ i['id'] }}">Удалить</a>
+                        <a class="item-link" href="/change_status/{{ i['id'] }}">Отменить</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+body{
+    background-color: pink;
+}
+
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+.list{
+    list-style: none;
+    padding: 0;
+    background-color: #8ce7e7;
+}
+
+.item{
+    background-color: green;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+
+}
+.item-link{
+    text-decoration: #8ce7e7;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+}
+
+.done{
+    background-color: red;
+}
